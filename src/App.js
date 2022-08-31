@@ -3,11 +3,23 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  window.onscroll = function () { myFunction() };
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+
+
   const [flag, setFlag] = useState(false);
   function toogleSki() {
     setFlag(!flag)
-
-
   }
   return <div>
     <nav class="nav" id="navbar">
