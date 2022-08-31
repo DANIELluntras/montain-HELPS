@@ -1,7 +1,14 @@
+import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const [flag, setFlag] = useState(false);
+  function toogleSki() {
+    setFlag(!flag)
+
+
+  }
   return <div>
     <nav class="nav" id="navbar">
       <h1 class="name-nav"> Montain Help</h1>
@@ -75,13 +82,13 @@ function App() {
       </div>
       <div class="operations">
         <div class="operations__tab-container">
-          <button class="btn operations__tab operations__tab--1 operations__tab--active" data-tab="1">Ski
+          <button onClick={toogleSki} class="btn operations__tab operations__tab--1 operations__tab--active" data-tab="1">Ski
           </button>
           <button class="btn operations__tab operations__tab--2" data-tab="2">Ski
           </button>
         </div>
         <div class="operation-container">
-          <div class="operations__content operations__content--1 operations__content--active">
+          <div className={`operations__content ${flag ? "" : "operations__content--1"} operations__content--active`}>
             <div class="operations__icon operations__icon--1 ">
             </div>
             <h5 class="operations__header">
